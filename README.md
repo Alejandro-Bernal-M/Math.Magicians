@@ -26,10 +26,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [To-Do-list] <a name="about-project"></a>
+# 📖 [Math Magicians] <a name="about-project"></a>
 
 
-**[To-Do-list]** is a project where  a math page is setup using React.js and Next.js
+**[Math Magicians]** is a webpage where you can use a calculator and see a quote, it was implemented using React.js 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -48,7 +48,6 @@
   <summary>Tools</summary>
   <ul>
     <li>React</li>
-    <li>Next.js</li>
   </ul>
 </details>
 

@@ -1,5 +1,9 @@
+.calculator-holder {
+  display: flex;
+}
+
 .calculator {
-  width: 40%;
+  width: 60%;
   max-width: 350px;
   height: 280px;
   margin: 60px auto;
@@ -46,4 +50,18 @@
 
 .orange {
   background-color: #f5913e;
+}
+
+.quote-div {
+  width: 40%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.quote-btn {
+  width: 50%;
+  height: 30px;
 }
