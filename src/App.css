@@ -22,7 +22,14 @@
   padding-right: 5px;
 }
 
+.btn-div {
+  margin: 0;
+  padding: 0;
+}
+
 .btn {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

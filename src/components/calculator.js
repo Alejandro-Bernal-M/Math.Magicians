@@ -1,24 +1,29 @@
-function Calculator() {
-  const btnValues = ['AC', '+/-', '%', '÷', 7, 8, 9, 'x', 4, 5, 6, '-', 1, 2, 3, '+', 0, '.', '='];
+import { useState } from 'react';
+import Btn from './btn';
+import Output from './output';
 
-  function setColor(element) {
-    const oranges = ['÷', 'x', '-', '+', '='];
-    return oranges.includes(element) ? 'orange' : 'gray';
-  }
+function Calculator() {
+  const btnValues = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
+  const [value, setValue] = useState('0');
+  const initialCalc = {
+    total: '0',
+    next: null,
+    operation: null,
+  };
+  const [totalObj, setTotal] = useState(initialCalc);
 
   return (
     <div className="calculator">
-      <div className="result">
-        0
-      </div>
+      <Output value={value} totalObj={totalObj} />
       <div className="calculator-btn">
         {btnValues.map((btn) => (
-          <div
-            className={`btn ${btn === 0 ? 'double' : ''} ${setColor(btn)}`}
+          <Btn
             key={btn}
-          >
-            {btn}
-          </div>
+            content={btn}
+            setValue={setValue}
+            setTotal={setTotal}
+            totalObj={totalObj}
+          />
         ))}
       </div>
     </div>
