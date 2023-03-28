@@ -76,3 +76,7 @@
   width: 50%;
   height: 30px;
 }
+
+.active {
+  color: #00b2f8 !important;
+}
