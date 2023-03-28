@@ -46,6 +46,8 @@ function ApiCall() {
         &quot;
         {dataFromApi[0].quote}
         &quot;
+        -
+        {dataFromApi[0].author}
       </span>
       <button className="quote-btn" type="button" onClick={changeQuote}>Change quote</button>
     </div>
