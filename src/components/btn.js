@@ -3,7 +3,7 @@ import calculate from './logic/calculate';
 
 function setColor(element) {
   const oranges = ['÷', 'x', '-', '+', '='];
-  return oranges.includes(element) ? 'orange' : 'gray';
+  return oranges.includes(element) ? 'color1' : 'color2';
 }
 
 function Btn({

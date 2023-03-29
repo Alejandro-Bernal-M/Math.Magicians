@@ -46,6 +46,8 @@ function ApiCall() {
         &quot;
         {dataFromApi[0].quote}
         &quot;
+        <br />
+        <br />
         -
         {dataFromApi[0].author}
       </span>

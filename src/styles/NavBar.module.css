@@ -1,24 +1,52 @@
 .nav {
-  width: 90%;
+  width: 100%;
+  height: 110px;
   display: flex;
-  padding-left: 30px;
   justify-content: space-between;
+  align-items: center;
+  background-color: #1b5564;
+  color: #56c7f8cc;
 }
 
 .h1Nav {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 3rem;
+  padding-left: 30px;
+  transition: font-size 0.5s;
+}
+
+.h1Nav:hover {
+  font-size: 3.1rem;
 }
 
 .nav > ul {
+  height: 80%;
+  width: 30%;
   display: flex;
-  gap: 10px;
+  gap: 13px;
   list-style: none;
   align-items: center;
+  padding-right: 30px;
+}
+
+.nav > ul > li {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 .nav > ul > li > a {
   text-decoration: none;
   font-size: 20px;
-  color: #3451a0;
+  color: #32bcf7cc;
+  transition: font-size 0.5s;
+}
+
+.nav > ul > li > a:hover {
+  box-shadow: 0 0 10px 1px #fff;
+  font-size: 22px;
+  border-radius: 20px;
+  padding: 3px;
 }
