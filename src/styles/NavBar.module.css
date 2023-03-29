@@ -34,7 +34,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex:1 ;
+  flex: 1;
 }
 
 .nav > ul > li > a {
@@ -42,7 +42,6 @@
   font-size: 20px;
   color: #32bcf7cc;
   transition: font-size 0.5s;
- 
 }
 
 .nav > ul > li > a:hover {
