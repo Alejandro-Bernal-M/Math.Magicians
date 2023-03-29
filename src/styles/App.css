@@ -3,6 +3,14 @@
   padding: 0;
 }
 
+body {
+  background: linear-gradient(60deg, rgba(80, 203, 252, 0.774) 40%, rgb(59, 157, 202));
+  height: 100vh;
+  overflow: hidden;
+  color: #101f22;
+  font-family: 'Lato', sans-serif;
+}
+
 .calculator-holder {
   display: flex;
 }
