@@ -1,5 +1,14 @@
-.wrapper {
-  padding: 0 20px 20px 20px;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(60deg, rgba(80, 203, 252, 0.774) 40%, rgb(59, 157, 202));
+  height: 100vh;
+  overflow: hidden;
+  color: #101f22;
+  font-family: 'Lato', sans-serif;
 }
 
 .calculator-holder {
@@ -7,9 +16,10 @@
 }
 
 .calculator {
-  width: 50%;
-  max-width: 350px;
-  height: 280px;
+  width: 60%;
+  max-width: 300px;
+  min-width: 200px;
+  height: 350px;
   margin: 60px auto;
 }
 
@@ -18,6 +28,10 @@
   height: 85%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  gap: 1px;
+  background-color: #858693;
+  border-radius: 5px;
+  padding-top: 1px;
 }
 
 .result {
@@ -27,7 +41,10 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  padding-right: 5px;
+  padding-right: 18px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 20px;
 }
 
 .btn-div {
@@ -41,28 +58,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid gray;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translate(0.5px, 0.5px);
+  box-shadow: 0.5px 0.5px gray;
 }
 
 .double {
   grid-column: 1/3;
 }
 
-.gray {
+.color2 {
   background-color: #e0e0e0;
 }
 
-.orange {
-  background-color: #f5913e;
+.color1 {
+  background-color: #046792;
+  color: #fff;
 }
 
 .QuoteDiv {
-  height: 500px;
+  height: 300px;
 }
 
 .quote-div {
   width: 60%;
-  height: 200px;
+  height: 100%;
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -70,13 +96,19 @@
   align-items: center;
   margin: 0 auto;
   font-size: 30px;
+  text-align: justify;
 }
 
 .quote-btn {
-  width: 50%;
-  height: 30px;
+  margin-top: 30px;
+  width: 28%;
+  height: 45px;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
 }
 
 .active {
-  color: #00b2f8 !important;
+  color: #fff !important;
+  text-decoration: underline !important;
 }
