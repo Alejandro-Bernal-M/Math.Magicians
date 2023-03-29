@@ -1,5 +1,6 @@
-.wrapper {
-  padding: 0 20px 20px 20px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 .calculator-holder {
@@ -78,5 +79,6 @@
 }
 
 .active {
-  color: #00b2f8 !important;
+  color: #fff !important;
+  text-decoration: underline !important;
 }
