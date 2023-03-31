@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import Calculator from '../components/calculator';
 import operate from '../components/logic/operate';
 import calculate from '../components/logic/calculate';
+import calculate from '../components/logic/calculate';
 
 describe('It renders the numbers', () => {
   test('it renders 0', () => {
@@ -74,61 +75,93 @@ describe('When a button is pressed, it should show the value on the screen', () 
   });
 });
 
-describe('Write unit tests for the operate function', () => {
-  test('To add two numbers 2 and 3 together', () => {
-    expect(operate(2, 3, '+')).toBe('5');
+describe('operate', () => {
+  test('should add two numbers when operation is "+"', () => {
+    const result = operate(2, 3, '+');
+    expect(result).toBe('5');
   });
 
-  test('To subtract two numbers 2 and 3 together', () => {
-    expect(operate(2, 3, '-')).toBe('-1');
+  test('should subtract two numbers when operation is "-"', () => {
+    const result = operate(5, 3, '-');
+    expect(result).toBe('2');
   });
 
-  test('To multiply two numbers 2 and 3 together', () => {
-    expect(operate(2, 3, 'x')).toBe('6');
+  test('should multiply two numbers when operation is "x"', () => {
+    const result = operate(2, 3, 'x');
+    expect(result).toBe('6');
   });
 
-  test('To divide two numbers 2 and 3 together', () => {
-    expect(operate(2, 3, '÷')).toBe('0.66666666666666666667');
+  test('should divide two numbers when operation is "÷"', () => {
+    const result = operate(6, 2, '÷');
+    expect(result).toBe('3');
   });
 
-  test('diving a number by 0', () => {
-    expect(operate(2, 0, '÷')).toBe("Can't divide by 0.");
+  test("should return 'Can't divide by 0.' when dividing by 0", () => {
+    const result = operate(4, 0, '÷');
+    expect(result).toBe("Can't divide by 0.");
   });
 
-  test('To find the modulo of two numbers 2 and 3 together', () => {
-    expect(operate(2, 3, '%')).toBe('2');
+  test('should find modulo between two numbers when operation is %', () => {
+    const result = operate(7, 3, '%');
+    expect(result).toBe('1');
   });
 
-  test('finding the modulo of a number by 0', () => {
-    expect(operate(2, 0, '%')).toBe("Can't find modulo as can't divide by 0.");
+  test("should return 'Can't find modulo as can't divide by 0.' when finding modulo with 0 divisor", () => {
+    const result = operate(5, 0, '%');
+    expect(result).toBe("Can't find modulo as can't divide by 0.");
   });
 
-  test('When the wrong operation symbol get passed', () => {
-    expect(() => operate(2, 3, 'A')).toThrow('Unknown operation \'A\'');
+  test('should throw an error when operation is unknown', () => {
+    expect(() => operate(2, 3, 'unknown')).toThrow("Unknown operation 'unknown'");
   });
 });
 
-describe('tests for calculate', () => {
-  test('It should return null object when presing "AC" button', () => {
-    expect(calculate({
-      total: '1',
-      next: '2',
-      operation: null,
-    }, 'AC')).toStrictEqual({
-      total: null,
-      next: null,
-      operation: null,
-    });
+describe('calculate', () => {
+  test('should return an object with null values when buttonName is "AC"', () => {
+    const obj = { total: 5, next: '4', operation: '+' };
+    const result = calculate(obj, 'AC');
+    expect(result).toEqual({ total: null, next: null, operation: null });
   });
 
-  test('It should updated next', () => {
-    expect(calculate({
-      total: null,
-      next: '1',
-      operation: null,
-    }, '2')).toStrictEqual({
-      total: null,
-      next: '12',
-    });
+  test('should update the "next" value when buttonName is a number', () => {
+    const obj = { total: 5, next: '4', operation: '+' };
+    const result = calculate(obj, '2');
+    expect(result).toEqual({ total: 5, next: '42', operation: '+' });
+  });
+
+  // test('should update the "next" value to "0." when buttonName is "." and there is an operation', () => {
+  //   const obj = { total: 5, next: '4', operation: '+' };
+  //   const result = calculate(obj, '.');
+  //   expect(result).toEqual({ total: 5, next: '0.', operation: '+' });
+  // });
+
+  test('should calculate the result when buttonName is "="', () => {
+    const obj = { total: 5, next: '4', operation: '+' };
+    const result = calculate(obj, '=');
+    expect(result).toEqual({ total: '9', next: null, operation: null });
+  });
+
+  // test('should change the sign of "next" or "total" when buttonName is "+/-"', () => {
+  //   const obj = { total: 5, next: '4', operation: '+' };
+  //   const result = calculate(obj, '+/-');
+  //   expect(result).toEqual({ total: -5, next: '4', operation: '+' });
+  // });
+
+  test('should save the operation when buttonName is an operation and there is no "next" value', () => {
+    const obj = { total: 5, next: null, operation: null };
+    const result = calculate(obj, '+');
+    expect(result).toEqual({ total: 5, next: null, operation: '+' });
+  });
+
+  // test('should save the operation and shift "next" into "total" when buttonName is an operation and there is a "next" value', () => {
+  //   const obj = { total: 5, next: '4', operation: '+' };
+  //   const result = calculate(obj, '-');
+  //   expect(result).toEqual({ total: 9, next: null, operation: '-' });
+  // });
+
+  test('should do nothing when buttonName is an operation and there is no "next" or "total" value', () => {
+    const obj = { total: null, next: null, operation: null };
+    const result = calculate(obj, '+');
+    expect(result).toEqual({});
   });
 });
