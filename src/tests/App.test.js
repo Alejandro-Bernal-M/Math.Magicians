@@ -3,12 +3,12 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Calculator from '../components/calculator';
 import operate from '../components/logic/operate';
+import calculate from '../components/logic/calculate';
 
 describe('It renders the numbers', () => {
   test('it renders 0', () => {
     render(<Calculator />);
     const zeros = screen.getAllByText('0');
-    screen.debug();
     expect(zeros[1]).toBeInTheDocument();
   });
   test('it renders 1', () => {
@@ -106,4 +106,29 @@ describe('Write test for the operate function', () => {
   test('When the wrong operation symbol get passed', () => {
     expect(() => operate(2, 3, 'A')).toThrow('Unknown operation \'A\'');
   });
-})
+});
+
+describe('tests for calculate', () => {
+  test('It should return null object when presing "AC" button', () => {
+    expect(calculate({
+      total: '1',
+      next: '2',
+      operation: null,
+    }, 'AC')).toStrictEqual({
+      total: null,
+      next: null,
+      operation: null,
+    });
+  });
+
+  test('It should updated next', () => {
+    expect(calculate({
+      total: null,
+      next: '1',
+      operation: null,
+    }, '2')).toStrictEqual({
+      total: null,
+      next: '12',
+    });
+  });
+});
