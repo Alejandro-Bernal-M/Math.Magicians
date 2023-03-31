@@ -2,6 +2,7 @@ import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Calculator from '../components/calculator';
+import operate from '../components/logic/operate';
 
 describe('It renders the numbers', () => {
   test('it renders 0', () => {
@@ -72,3 +73,37 @@ describe('When a button is pressed, it should show the value on the screen', () 
     expect(document.querySelector('.result').textContent).toBe('15');
   });
 });
+
+describe('Write test for the operate function', () => {
+  test('To add two numbers 2 and 3 together', () => {
+    expect(operate(2, 3, '+')).toBe('5');
+  });
+
+  test('To subtract two numbers 2 and 3 together', () => {
+    expect(operate(2, 3, '-')).toBe('-1');
+  });
+
+  test('To multiply two numbers 2 and 3 together', () => {
+    expect(operate(2, 3, 'x')).toBe('6');
+  });
+
+  test('To divide two numbers 2 and 3 together', () => {
+    expect(operate(2, 3, '÷')).toBe('0.66666666666666666667');
+  });
+
+  test('diving a number by 0', () => {
+    expect(operate(2, 0, '÷')).toBe("Can't divide by 0.");
+  });
+
+  test('To find the modulo of two numbers 2 and 3 together', () => {
+    expect(operate(2, 3, '%')).toBe('2');
+  });
+
+  test('finding the modulo of a number by 0', () => {
+    expect(operate(2, 0, '%')).toBe("Can't find modulo as can't divide by 0.");
+  });
+
+  test('When the wrong operation symbol get passed', () => {
+    expect(() => operate(2, 3, 'A')).toThrow('Unknown operation \'A\'');
+  });
+})
