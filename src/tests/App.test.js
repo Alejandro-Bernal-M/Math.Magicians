@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 import Calculator from '../components/calculator';
 import operate from '../components/logic/operate';
 import calculate from '../components/logic/calculate';
-import calculate from '../components/logic/calculate';
 
 describe('It renders the numbers', () => {
   test('it renders 0', () => {
