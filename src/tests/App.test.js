@@ -159,10 +159,10 @@ describe('calculate', () => {
     expect(result).toEqual({});
   });
 
-   test('should update next with "total." when next is null but total is not while buttonName is "." and no operation', () => {
+  test('should update next with "total." when next is null but total is not while buttonName is "." and no operation', () => {
     const obj = { total: '5', next: null, operation: null };
     const result = calculate(obj, '.');
-    expect(result).toEqual({...obj, next: '5.'});
+    expect(result).toEqual({ ...obj, next: '5.' });
   });
 
   test('should update next to "0." when next and total is null while buttonName is "." and no operation', () => {
