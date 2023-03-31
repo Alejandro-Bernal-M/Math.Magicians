@@ -74,7 +74,7 @@ describe('When a button is pressed, it should show the value on the screen', () 
   });
 });
 
-describe('Write test for the operate function', () => {
+describe('Write unit tests for the operate function', () => {
   test('To add two numbers 2 and 3 together', () => {
     expect(operate(2, 3, '+')).toBe('5');
   });
