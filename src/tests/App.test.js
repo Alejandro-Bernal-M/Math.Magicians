@@ -7,6 +7,7 @@ describe('It renders the numbers', () => {
   test('it renders 0', () => {
     render(<Calculator />);
     const zeros = screen.getAllByText('0');
+    screen.debug();
     expect(zeros[1]).toBeInTheDocument();
   });
   test('it renders 1', () => {
